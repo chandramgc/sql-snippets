@@ -1,0 +1,52 @@
+Additive	- Can be summed up over any combination of dimensions
+Non-additive- Measuers of intensity which cannont be summed i.e temperature. 
+Semi-Additive-Cannot be summed across all dimensions i.e balances cannont be summed over time
+
+Three Fundamental Fact Grains
+Transaction	- Represents an instantaneous measurement at a specific point in space and time
+			  Transaction gain records are created only if the measurement events take place
+Periodic Snapshot Facts	- Grain of a Periodic snapshot can be Daily, Weekly, Monthly, Yearly, etc
+			  Usually an 'open' current rolling period
+Accumulating Snapshot Facts - Individual record is created when a shipment invoice is created
+			  Unknown dimensions are not applicatle and their surrogate keys must point to the special record in the dimension
+			  corresponding to Not Applicable
+			  
+Bridge Tables-Many Dimension Values to One Fact
+Processing Bridge Table - Determine if the Diagnosis group exists. If not, assign group key and populate the bridge table
+
+Dimension
+Audit Dimension - Dummy row for records with no defects
+			  Audit dimensions can be unique to each fact table 
+			  Error Event Fact can be used to fill in the measures of the audit dimension 
+Conforming Dimensions - Identify the source systems
+			  Understand the source systems
+			  create record matching logic
+			  establish survivorship rules
+			  establish non-key attribute business rules
+			  assign surrogate key 
+			  load conformed dimension
+Junk Dimension-Combine small, low cardinality dimension
+			  Create the cartesian product of values
+			  
+Advance Data Delivery Techniques
+Raggerd Hierarchies - Blocks represent individual customer entities, connenceted in an organization tree. 
+			  Assume that revenue can be received from any or all of these entities
+			  In the OLTP, this type of hierarchy is usually modeled as a single table with a recursive key
+Late Arriving Data - Information about a trasaction is provided after the trasaction has already been migrated to the data warehouse
+			  Bad data that has already been migrated to data warehouse is corrected in the source systems
+			  Late Arriving Data (LAD) can occur in Dimensions or facts
+			  LAD in fact tables should be handled as a seperate thoroughly tested, process form the typical data load
+Late Arriving Facts - Using a customer-purchase scenario, suppose we receive today a purchase record that is several month old.
+			  We must insert this late arriving record into its correct historical position.
+
+Types of ETL Metadata
+Business Metadata - Describes the meaning of the data in a business sense
+Technical Metadata - Represents the technical aspects of the data including attribute such as data types, lengths, lineage and so on
+Process Metadata - Presents statistics on the ETL process. Includes measure such as rows loaded successfully, rows rejected amount of time to load and so on.
+
+
+
+
+
+
+
