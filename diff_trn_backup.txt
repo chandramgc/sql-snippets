@@ -1,0 +1,23 @@
+Full
+
+backup database [DatabaseName] to disk = N'...' with compression , nounload .
+Restore database [DatabaseName] from disk =N'......' with recovery , file =1 , stats= 10.
+
+ 
+
+DIfferential
+
+backup database [DatabaseName] to disk = N'...' with differential, compression , nounload .
+Restore database [DatabaseName] from disk =N'......' with recovery , file =1 , stats= 10.
+
+ 
+
+T-log
+
+backup log [DatabaseName] to disk = N'...' with  nounload .
+Restore log [DatabaseName] from disk =N'......' with recovery , file =1 , stats= 10.
+
+ 
+
+SP_WHO2  -- to identify users tasks
+kill   -- to kill process
